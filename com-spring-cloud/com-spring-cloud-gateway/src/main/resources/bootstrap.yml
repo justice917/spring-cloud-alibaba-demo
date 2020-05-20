@@ -1,0 +1,10 @@
+
+#spring boot actutor监控收集   
+spring:
+   application:
+      name: cloud-gateway            
+   cloud:
+      nacos:    
+         config:
+            server-addr: 127.0.0.1:8858
+            file-extension: yaml      

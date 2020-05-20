@@ -1,0 +1,84 @@
+# DataSource Config
+server:
+   port: 9000   
+   
+spring:
+   cloud:
+      nacos:
+         discovery:
+            server-addr: 127.0.0.1:8858   
+      sentinel:
+         transport:
+            port: 8710
+            dashboard: localhost:8080
+         datasource:
+            ds1:
+               nacos:
+                  server-addr: localhost:8858
+                  data-id: ${spring.application.name}-flow
+                  group-id: DEFAULT_GROUP
+                  data-type: json
+                  rule-type: flow         
+            ds2:
+               nacos:
+                  server-addr: localhost:8858
+                  data-id: ${spring.application.name}-degrade
+                  group-id: DEFAULT_GROUP
+                  data-type: json
+                  rule-type: degrade
+            ds3:
+               nacos:
+                  server-addr: localhost:8858
+                  data-id: ${spring.application.name}-authority
+                  group-id: DEFAULT_GROUP
+                  data-type: json
+                  rule-type: authority
+            ds4:
+               nacos:
+                  server-addr: localhost:8858
+                  data-id: ${spring.application.name}-system
+                  group-id: DEFAULT_GROUP
+                  data-type: json
+                  rule-type: system                                 
+            ds5:
+               nacos:
+                  server-addr: localhost:8858
+                  data-id: ${spring.application.name}-param-flow
+                  group-id: DEFAULT_GROUP
+                  data-type: json
+                  rule-type: param-flow   
+      gateway:
+         routes:
+           - id: route-baidu
+             uri: http://tieba.baidu.com
+             predicates:
+               - Path=/index.html
+           - id: route-a-service
+             uri: lb://a-service
+             predicates:
+               - Path=/test/selectTest
+               - Header=X-sign, \w+
+               - Header=X-md5, \w+ 
+#上传链路数据到zipkin
+   zipkin:
+      #zipkin控制台地址
+      base-url: http://localhost:9411
+   sleuth:
+      sampler:
+         #采样率[0,1] 1代表全部采样
+         probability: 1   
+   
+   
+# Logger Config
+logging:
+   level:
+      com.spring.cloud.gateway: debug
+    
+    
+#spring boot actutor监控收集   
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+                   

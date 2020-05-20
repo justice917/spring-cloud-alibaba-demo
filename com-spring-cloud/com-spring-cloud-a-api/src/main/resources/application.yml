@@ -1,0 +1,40 @@
+# DataSource Config
+server:
+   port: 9010   
+   
+spring:
+   cloud:
+      nacos:
+         discovery:
+            server-addr: 127.0.0.1:8858   
+      sentinel:
+         transport:
+            port: 8719
+            dashboard: localhost:8080                  
+#上传链路数据到zipkin
+   zipkin:
+      #zipkin控制台地址
+      base-url: http://localhost:9411
+   sleuth:
+      sampler:
+         #采样率[0,1] 1代表全部采样
+         probability: 1   
+   
+   
+# Logger Config
+logging:
+   level:
+      org.com.spring.cloud.a.api: info
+    
+    
+#spring boot actutor监控收集   
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+            
+#要用sentinel来支持feign的fallback功能            
+feign:
+   sentinel:
+      enabled: true            
