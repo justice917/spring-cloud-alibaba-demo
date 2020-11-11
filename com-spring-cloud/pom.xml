@@ -109,7 +109,7 @@
   
 
   	<modules>
-  		<module>com-spring-cloud-b-mysql</module>  		
+  		<module>com-spring-cloud-mysql</module>  		
     	<module>com-spring-cloud-b-api</module>
     	<module>com-spring-cloud-a-api</module>
     	<module>com-spring-cloud-common</module>
