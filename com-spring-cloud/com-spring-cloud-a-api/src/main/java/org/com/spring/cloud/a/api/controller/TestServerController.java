@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.ws.rs.Path;
 
+import org.apache.dubbo.config.annotation.Reference;
 import org.com.spring.cloud.a.api.remote.BserviceInvoker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.boot.create.mysql.template.entity.UserTest;
+import com.spring.cloud.b.face.UserTestFace;
+import com.spring.cloud.b.face.dto.DubboRespEntity;
+import com.spring.cloud.b.face.dto.RemoteUserTest;
 import com.spring.cloud.common.consts.Consts;
 import com.spring.cloud.common.model.RespEntity;
 
@@ -41,6 +45,9 @@ public class TestServerController {
 	@Autowired
 	private BserviceInvoker bservice;
 	
+	@Reference(check=false,retries=0,timeout=5000)
+	private UserTestFace userTestFace;
+	
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestServerController.class);
 
     @RequestMapping(value = "/selectTest", method = RequestMethod.GET,produces="application/json")
@@ -57,5 +64,9 @@ public class TestServerController {
     public RespEntity<Integer> maybeFailMethod(@PathVariable int id) {
         return bservice.maybeFailMethod(id);
     }
-    
+ 
+    @RequestMapping(value = "/userTestFace", method = RequestMethod.GET,produces="application/json")
+    public DubboRespEntity<RemoteUserTest> userTestFace() {
+        return userTestFace.getUserList();
+    } 
 }

@@ -1,0 +1,16 @@
+#application加载应用的配置信息,其中可以通过spring.profiles.active来指定某种环境的配置信息
+#服务端口
+server:
+   port: 9020
+   
+#spring boot actutor监控收集   
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+            
+#指定dev,test,prod等配置环境,链接到文件application-xxx.yml
+spring:
+   profiles:
+      active: dev             

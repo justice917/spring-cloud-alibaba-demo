@@ -81,6 +81,18 @@
     	<groupId>mycloud</groupId>
   		<artifactId>com-spring-cloud-common</artifactId>
 	</dependency>
+	<dependency>
+    	<groupId>mycloud</groupId>
+  		<artifactId>com-spring-cloud-b-face</artifactId>
+	</dependency>
+		
+    <!-- dubbo組件 -->    	       	
+    <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-dubbo</artifactId>
+    </dependency>
+	<!-- dubbo組件 -->	
+	
   </dependencies>
   
     <build>

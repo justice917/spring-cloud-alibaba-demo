@@ -6,20 +6,26 @@ spring:
    cloud:
       nacos:
          discovery:
-            server-addr: 127.0.0.1:8858   
+            server-addr: 192.168.26.85:8848
       sentinel:
          transport:
             port: 8719
-            dashboard: localhost:8080                  
+            dashboard: 192.168.26.85:8868         
 #上传链路数据到zipkin
    zipkin:
       #zipkin控制台地址
-      base-url: http://localhost:9411
+      base-url: http://192.168.26.85:9411
    sleuth:
       sampler:
          #采样率[0,1] 1代表全部采样
          probability: 1   
    
+dubbo:
+   protocol:
+       name: dubbo
+       port: 20881
+   registry:
+       address: spring-cloud://192.168.26.85   
    
 # Logger Config
 logging:

@@ -1,0 +1,24 @@
+
+#加载了nacos的配置功能后，必须在bootstrap配置文件中指明某些信息
+spring:
+   application:
+      #必要
+      name: b-service
+   cloud:
+      nacos:
+         #必要可以放到后续application配置中，这里看起来方便放这里，实事上服务发现和服务配置内容可以放到不同的nacos服务器
+         discovery:
+            server-addr: 192.168.26.85:8848    
+         config:
+            #必要
+            server-addr: 192.168.26.85:8848
+            #非必要，默认为properties    
+            file-extension: yaml
+            #可以分类的内容：产品线，运行环境，代码分支，参数是否支持动态刷新
+            #namespace: adas-sadfa
+            #group: DEV_GROUP
+            #共享参数，不支持刷新
+            #shared-dataids: redis.yml,rabbitmq.yml
+            #共享参数，支持刷新
+            #refreshable-dataids: xxx.yml
+      

@@ -32,7 +32,6 @@
            	<artifactId>spring-boot-starter-freemarker</artifactId>
        	</dependency>
 
-
 		<!-- mysql組件 -->
 		<dependency>
 			<groupId>com.baomidou</groupId>

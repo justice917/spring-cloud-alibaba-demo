@@ -32,7 +32,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-web</artifactId>
 	</dependency>    	
-	<!-- 检测数据收集 -->
+	<!-- 检测数据收集  必须包含，否则使用dubbo组件会启动报错-->
 	<dependency>
     	<groupId>org.springframework.boot</groupId>
     	<artifactId>spring-boot-starter-actuator</artifactId>    
@@ -89,6 +89,18 @@
     	<groupId>mycloud</groupId>
   		<artifactId>com-spring-cloud-common</artifactId>
 	</dependency>
+	<dependency>
+    	<groupId>mycloud</groupId>
+  		<artifactId>com-spring-cloud-b-face</artifactId>
+	</dependency>
+  
+    <!-- dubbo組件 -->    	       	
+    <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-dubbo</artifactId>
+    </dependency>
+	<!-- dubbo組件 -->
+
 
   </dependencies>
   

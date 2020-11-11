@@ -98,7 +98,11 @@
 		    	<artifactId>com-spring-cloud-common</artifactId>
 		    	<version>0.0.1-SNAPSHOT</version>
 			</dependency>    			
-		  	
+			<dependency>
+		    	<groupId>mycloud</groupId>
+		  		<artifactId>com-spring-cloud-b-face</artifactId>
+		  		<version>0.0.1-SNAPSHOT</version>
+			</dependency>		  	
 		  	
    		</dependencies>
  	</dependencyManagement>
@@ -110,5 +114,6 @@
     	<module>com-spring-cloud-a-api</module>
     	<module>com-spring-cloud-common</module>
       	<module>com-spring-cloud-gateway</module>
-  </modules>
+      	<module>com-spring-cloud-b-face</module>
+  	</modules>
 </project>
