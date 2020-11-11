@@ -102,6 +102,11 @@
     </dependency>
 	<!-- dubbo組件 -->
 
+    <dependency>
+        <groupId>io.zipkin.brave</groupId>
+        <artifactId>brave-instrumentation-dubbo</artifactId>    
+    </dependency>
+
 
   </dependencies>
   

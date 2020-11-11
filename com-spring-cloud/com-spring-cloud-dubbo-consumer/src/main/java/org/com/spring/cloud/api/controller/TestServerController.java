@@ -23,7 +23,7 @@ import com.spring.cloud.b.face.dto.RemoteUserTest;
 public class TestServerController {
 	
 
-	@Reference(check=false,retries=0,timeout=5000)
+	@Reference(timeout=5000)
 	private UserTestFace userTestFace;
 	
 	

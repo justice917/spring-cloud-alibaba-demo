@@ -45,11 +45,7 @@
 	    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>	    
 	</dependency>
 	
-	<!-- 整合zipkin查看链路 包含sleuth -->
-	<dependency>
-	    <groupId>org.springframework.cloud</groupId>
-	    <artifactId>spring-cloud-starter-zipkin</artifactId>    
-	</dependency>
+
 	
 	
 	
@@ -89,6 +85,17 @@
     </dependency>
 	<!-- dubbo組件 -->	
 	
+
+	<!-- 整合zipkin查看链路 包含sleuth -->
+	<dependency>
+	    <groupId>org.springframework.cloud</groupId>
+	    <artifactId>spring-cloud-starter-zipkin</artifactId>    
+	</dependency>	
+    <dependency>
+        <groupId>io.zipkin.brave</groupId>
+        <artifactId>brave-instrumentation-dubbo</artifactId>    
+    </dependency>	
+	<!-- 整合zipkin查看链路 包含sleuth -->
   </dependencies>
   
     <build>

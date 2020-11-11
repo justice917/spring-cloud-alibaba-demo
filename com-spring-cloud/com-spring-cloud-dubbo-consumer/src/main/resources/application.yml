@@ -21,16 +21,24 @@ spring:
          probability: 1   
    
 dubbo:
+   cloud:
+      subscribed-services: dubbo-provider-service
    protocol:
-       name: dubbo
-       port: 21881
+      name: dubbo
+      port: 21881
    registry:
-       address: spring-cloud://192.168.26.85   
-   
+      address: spring-cloud://192.168.26.85   
+   consumer:
+      check: false 
+      retries: 0    
+      filter: tracing
+   provider:
+      filter: tracing       
+          
 # Logger Config
 logging:
    level:
-      org.com.spring.cloud.a.api: info
+      org.com.spring.cloud.api: info
     
     
 #spring boot actutor监控收集   

@@ -1,12 +1,16 @@
 
 dubbo:
    scan:
-        base-packages: com.boot.create.api.controller.dubbo.provider
+      base-packages: com.boot.create.api.controller.dubbo.provider
    protocol:
-       name: dubbo
-       port: 21880
+      name: dubbo
+      port: 21880
    registry:
-       address: spring-cloud://192.168.26.85
+      address: spring-cloud://192.168.26.85
+   consumer:
+      filter: tracing
+   provider:
+      filter: tracing
 
 spring:
    datasource:
