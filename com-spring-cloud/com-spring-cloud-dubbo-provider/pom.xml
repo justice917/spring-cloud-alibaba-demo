@@ -44,6 +44,11 @@
 	    <groupId>com.alibaba.cloud</groupId>
 	    <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>	    
 	</dependency>    
+    <!-- Sentinel dubbo adapter -->
+    <dependency>
+        <groupId>com.alibaba.csp</groupId>
+        <artifactId>sentinel-apache-dubbo-adapter</artifactId>
+    </dependency>   
     
 	<!-- 服务发现 -->
 	<dependency>
@@ -68,11 +73,7 @@
 	    <groupId>com.alibaba.csp</groupId>
 	    <artifactId>sentinel-datasource-nacos</artifactId>
 	</dependency>
-	<!-- 整合zipkin查看链路 包含sleuth -->
-	<dependency>
-	    <groupId>org.springframework.cloud</groupId>
-	    <artifactId>spring-cloud-starter-zipkin</artifactId>    
-	</dependency>
+	
 
 	<dependency>
         <groupId>org.springframework.boot</groupId>
@@ -101,12 +102,18 @@
         <artifactId>spring-cloud-starter-dubbo</artifactId>
     </dependency>
 	<!-- dubbo組件 -->
-
+	
+	
+	<!-- 整合zipkin查看链路 包含sleuth -->
+	<dependency>
+	    <groupId>org.springframework.cloud</groupId>
+	    <artifactId>spring-cloud-starter-zipkin</artifactId>    
+	</dependency>
     <dependency>
         <groupId>io.zipkin.brave</groupId>
         <artifactId>brave-instrumentation-dubbo</artifactId>    
     </dependency>
-
+	<!-- 整合zipkin查看链路 包含sleuth -->
 
   </dependencies>
   

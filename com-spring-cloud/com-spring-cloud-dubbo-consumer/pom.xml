@@ -50,12 +50,16 @@
 	
 	
 
-    <!-- 如果要使用sentinel来实现openFeign的fallback功能 需要引入sentinel-->
+    <!-- 使用sentinel来实现dubbo降级-->
 	<dependency>
 	    <groupId>com.alibaba.cloud</groupId>
 	    <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>	    
 	</dependency> 	
-	
+    <!-- Sentinel dubbo adapter -->
+    <dependency>
+        <groupId>com.alibaba.csp</groupId>
+        <artifactId>sentinel-apache-dubbo-adapter</artifactId>        
+    </dependency>	
 
 	<dependency>
         <groupId>org.springframework.boot</groupId>

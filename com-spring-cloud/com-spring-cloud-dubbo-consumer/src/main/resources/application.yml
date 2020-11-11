@@ -9,8 +9,9 @@ spring:
             server-addr: 192.168.26.85:8848
       sentinel:
          transport:
-            port: 8719
-            dashboard: 192.168.26.85:8868         
+            port: 8819
+            dashboard: 127.0.0.1:8868
+            #dashboard: 192.168.26.85:8868         
 #上传链路数据到zipkin
    zipkin:
       #zipkin控制台地址
