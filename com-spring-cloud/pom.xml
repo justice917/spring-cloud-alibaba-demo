@@ -100,7 +100,7 @@
 			</dependency>    			
 			<dependency>
 		    	<groupId>mycloud</groupId>
-		  		<artifactId>com-spring-cloud-b-face</artifactId>
+		  		<artifactId>com-spring-cloud-dubbo-face</artifactId>
 		  		<version>0.0.1-SNAPSHOT</version>
 			</dependency>		  	
 		  	
@@ -110,10 +110,12 @@
 
   	<modules>
   		<module>com-spring-cloud-mysql</module>  		
-    	<module>com-spring-cloud-b-api</module>
-    	<module>com-spring-cloud-a-api</module>
+    	<module>com-spring-cloud-feign-provider</module>
+    	<module>com-spring-cloud-feign-consumer</module>
     	<module>com-spring-cloud-common</module>
       	<module>com-spring-cloud-gateway</module>
-      	<module>com-spring-cloud-b-face</module>
-  	</modules>
+      	<module>com-spring-cloud-dubbo-face</module>
+      	<module>com-spring-cloud-dubbo-provider</module>
+    	<module>com-spring-cloud-dubbo-consumer</module>
+  </modules>
 </project>

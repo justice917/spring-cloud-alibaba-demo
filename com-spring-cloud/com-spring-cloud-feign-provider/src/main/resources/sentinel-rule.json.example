@@ -1,0 +1,88 @@
+flow
+流控
+[
+    {
+        "resource": "sentinelResourceTest",
+        "limitApp": "default",
+        "grade": 1,
+        "count": 4,
+        "strategy": 0,
+        "controlBehavior": 0,
+        "clusterMode": false
+    }
+]
+
+
+
+degrade
+降级
+[
+    {
+        "resource": "sentinelResourceTest",
+        "limitApp": "default",
+        "grade": 1,
+        "count": 0.5,
+        "timeWindow": 10
+    }
+]
+
+authority
+权限
+[
+    {
+        "resource": "sentinelResourceTest",
+        "limitApp": "default",
+        "strategy": 1
+    }
+]
+
+system
+系统
+[
+    {
+        "resource": "sentinelResourceTest",
+        "highestSystemLoad": -1,
+        "highestCpuUsage": -1, 
+        "qps": 10, 
+        "avgRt": -1, 
+        "maxThread": -1
+    }
+]
+
+param-flow
+热点参数
+[
+    {
+        "resource": "sentinelResourceTest",
+        "limitApp": "default",
+        "paramIdx": 0,
+        "grade": 1,
+        "count": 4,
+        "strategy": 0,
+        "controlBehavior": 0,
+        "clusterMode": false,
+        "maxQueueingTimeMs": 0,
+        "burstCount": 0,
+        "durationInSec": 1
+    }
+]
+
+
+-------------------------------------------------------
+当这些配置按照规则解析失败的时候，sentinel-dashboard不会加载
+比如
+degrade
+降级
+[
+    {
+        "resource": "sentinelResourceTest",
+        "limitApp": "default",
+        "grade": 1,
+        "count": 4,
+        "timeWindow": 10
+    }
+]
+
+因为grade=1是异常比例，此时count接受的返回是[0,1]，所以会解析失败（程序控制台也没报错），然后会发现dashboard没有加载配置，一脸懵逼
+
+

@@ -1,0 +1,10 @@
+
+#spring boot actutor监控收集   
+spring:
+   application:
+      name: dubbo-consumer-service
+   cloud:
+      nacos:    
+         config:
+            server-addr: 192.168.26.85:8848
+            file-extension: yaml
