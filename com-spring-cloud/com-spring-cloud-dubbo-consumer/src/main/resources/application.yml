@@ -10,8 +10,8 @@ spring:
       sentinel:
          transport:
             port: 8819
-            dashboard: 127.0.0.1:8868
-            #dashboard: 192.168.26.85:8868         
+            #dashboard: 127.0.0.1:8868
+            dashboard: 192.168.26.85:8868
 #上传链路数据到zipkin
    zipkin:
       #zipkin控制台地址
@@ -22,8 +22,6 @@ spring:
          probability: 1   
    
 dubbo:
-   cloud:
-      subscribed-services: dubbo-provider-service
    protocol:
       name: dubbo
       port: 21881

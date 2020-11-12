@@ -36,8 +36,8 @@ spring:
       sentinel:
          transport:
             port: 8820
-            dashboard: 127.0.0.1:8868
-            #dashboard: 192.168.26.85:8868
+            #dashboard: 127.0.0.1:8868
+            dashboard: 192.168.26.85:8868
          #sentinel规则来源，原理是应用去获取nacos中的配置，然后通过sentinel客户端模块推送到sentinel-dashboard    
          datasource:
             ds1:

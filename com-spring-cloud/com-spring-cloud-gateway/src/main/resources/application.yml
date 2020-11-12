@@ -1,48 +1,48 @@
 # DataSource Config
 server:
-   port: 9000   
+   port: 9000  
    
 spring:
    cloud:
       nacos:
          discovery:
-            server-addr: 127.0.0.1:8858   
+            server-addr: 192.168.26.85:8848
       sentinel:
          transport:
             port: 8710
-            dashboard: localhost:8080
+            dashboard: 192.168.26.85:8868
          datasource:
             ds1:
                nacos:
-                  server-addr: localhost:8858
+                  server-addr: 192.168.26.85:8848
                   data-id: ${spring.application.name}-flow
                   group-id: DEFAULT_GROUP
                   data-type: json
                   rule-type: flow         
             ds2:
                nacos:
-                  server-addr: localhost:8858
+                  server-addr: 192.168.26.85:8848
                   data-id: ${spring.application.name}-degrade
                   group-id: DEFAULT_GROUP
                   data-type: json
                   rule-type: degrade
             ds3:
                nacos:
-                  server-addr: localhost:8858
+                  server-addr: 192.168.26.85:8848
                   data-id: ${spring.application.name}-authority
                   group-id: DEFAULT_GROUP
                   data-type: json
                   rule-type: authority
             ds4:
                nacos:
-                  server-addr: localhost:8858
+                  server-addr: 192.168.26.85:8848
                   data-id: ${spring.application.name}-system
                   group-id: DEFAULT_GROUP
                   data-type: json
                   rule-type: system                                 
             ds5:
                nacos:
-                  server-addr: localhost:8858
+                  server-addr: 192.168.26.85:8848
                   data-id: ${spring.application.name}-param-flow
                   group-id: DEFAULT_GROUP
                   data-type: json
@@ -53,8 +53,8 @@ spring:
              uri: http://tieba.baidu.com
              predicates:
                - Path=/index.html
-           - id: route-a-service
-             uri: lb://a-service
+           - id: route-feign-consumer-service
+             uri: lb://feign-consumer-service
              predicates:
                - Path=/test/selectTest
                - Header=X-sign, \w+
@@ -62,7 +62,7 @@ spring:
 #上传链路数据到zipkin
    zipkin:
       #zipkin控制台地址
-      base-url: http://localhost:9411
+      base-url: http://192.168.26.85:9411
    sleuth:
       sampler:
          #采样率[0,1] 1代表全部采样
